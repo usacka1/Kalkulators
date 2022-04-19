@@ -1,4 +1,5 @@
 from tkinter import*
+from math import*
 
 mansLogs = Tk()
 mansLogs.title("Kalkulators")
@@ -24,6 +25,30 @@ def btnCommand(command):
     e.delete(0, END)
     return 0
 
+def vienads():
+    global num2
+    num2 = int(e.get())
+    result = 0
+    if mathOp == "+":
+        result = num1 + num2
+    elif mathOp == "-":
+        result = num1 - num2
+    elif mathOp == "*":
+        result = num1 * num2
+    elif mathOp == "/":
+        result == num1/num2
+    else:
+        result = 0
+    e.delete(0, END)
+    e.insert(0, str(result))
+    return 0
+
+def clear():
+    e.delete(0, END)
+    num1 = 0
+    mathOp = ""
+    return 0
+
 # izveido pogas
 e = Entry(mansLogs, width = 15, font=("Arial Black", 20))
 
@@ -42,8 +67,8 @@ btnSas = Button(mansLogs, text="+", padx="40", pady="20", command = lambda:btnCo
 btnAtn = Button(mansLogs, text="-", padx="40", pady="20", command = lambda:btnCommand("-"))
 btnReiz = Button(mansLogs, text="*", padx="40", pady="20", command = lambda:btnCommand("*"))
 btnDal = Button(mansLogs, text="/", padx="40", pady="20", command = lambda:btnCommand("/"))
-btnVien = Button(mansLogs, text="=", padx="40", pady="20")
-btnDel = Button(mansLogs, text="Del", padx="40", pady="20")
+btnVien = Button(mansLogs, text="=", padx="40", pady="20", command = vienads)
+btnDel = Button(mansLogs, text="Del", padx="40", pady="20", command = clear)
 
 # definē novietojumu
 e.grid(row=0, column=0, columnspan=4)
