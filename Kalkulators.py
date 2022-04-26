@@ -37,6 +37,8 @@ def vienads():
         result = num1 * num2
     elif mathOp == "/":
         result = num1 / num2
+    elif mathOp == "x²":
+        result = num1**2
     else:
         result = 0
     e.delete(0, END)
@@ -59,16 +61,6 @@ def kvadrSakne():
     e.insert(0, num1)
     return 0
 
-def kapinasana():
-    global operator
-    global num1
-    global mathOp
-    num1 = (int(e.get()))
-    num1 = num1 * num1
-    e.delete(0, END)
-    e.insert(0, num1)
-    return 0
-
 def procenti():
     global operator
     global num1
@@ -84,10 +76,10 @@ def logaritms():
     global num1
     global mathOp
     num1 = (int(e.get()))
-    num1 = log(num1, 10)
+    num2 = log10(num1)
     # pie bāzes 10
     e.delete(0, END)
-    e.insert(0, num1)
+    e.insert(0, num2)
     return 0
 
 # izveido pogas
@@ -105,44 +97,44 @@ btn7 = Button(mansLogs, text="7", padx="30", pady="20", bd = 5, command = lambda
 btn8 = Button(mansLogs, text="8", padx="30", pady="20", bd = 5, command = lambda:btnClick(8))
 btn9 = Button(mansLogs, text="9", padx="30", pady="20", bd = 5, command = lambda:btnClick(9))
 
-btnSas = Button(mansLogs, text="+", padx="30", pady="20", bd = 5, command = lambda:btnCommand("+"))
+btnSas = Button(mansLogs, text="+", padx="28", pady="20", bd = 5, command = lambda:btnCommand("+"))
 btnAtn = Button(mansLogs, text="-", padx="30", pady="20", bd = 5, command = lambda:btnCommand("-"))
 btnReiz = Button(mansLogs, text="*", padx="30", pady="20", bd = 5, command = lambda:btnCommand("*"))
 btnDal = Button(mansLogs, text="/", padx="30", pady="20", bd = 5, command = lambda:btnCommand("/"))
-#kvadrātsakne, kāpināšana, porcenti, ???------------------------------------------------------------------------------------
+
 btnKvadr = Button(mansLogs, text="√", padx="30", pady="20", bd = 5, command = kvadrSakne)
-btnKapin = Button(mansLogs, text="x²", padx="30", pady="20", bd = 5, command = kapinasana)
-btnProc = Button(mansLogs, text="%", padx="30", pady="20", bd = 5, command = procenti)
+btnKapin = Button(mansLogs, text="x²", padx="30", pady="20", bd = 5, command = lambda:btnCommand("x²"))
+btnProc = Button(mansLogs, text="%", padx="27.5", pady="20", bd = 5, command = procenti)
 btnLogar = Button(mansLogs, text="log", padx="25", pady="20", bd = 5, command = logaritms)
-#---------------------------------------------------------------------------------------------------------------------------
+
 btnVien = Button(mansLogs, text="=", padx="30", pady="20", bd = 5, command = vienads)
 btnDel = Button(mansLogs, text="C", padx="30", pady="20", bd = 5, command = clear)
 
 # definē novietojumu
 e.grid(row=0, column=0, columnspan=4)
 
-btnDel.grid(row=1, column=0)
-btnKapin.grid(row=1, column=1)
-btnKvadr.grid(row=1, column=2)
+btn0.grid(row=5, column=1)
+btn1.grid(row=4, column=0)
+btn2.grid(row=4, column=1)
+btn3.grid(row=4, column=2)
+btn4.grid(row=3, column=0)
+btn5.grid(row=3, column=1)
+btn6.grid(row=3, column=2)
 btn7.grid(row=2, column=0)
-btn5.grid(row=2, column=1)
-btn6.grid(row=2, column=2)
-btn1.grid(row=3, column=0)
-btn2.grid(row=3, column=1)
-btn3.grid(row=3, column=2)
-btn0.grid(row=4, column=0)
+btn8.grid(row=2, column=1)
+btn9.grid(row=2, column=2)
 
-btnProc.grid(row=1, column=3)
-btnReiz.grid(row=2, column=3)
-btnSas.grid(row=3, column=3)
+btnSas.grid(row=5, column=3)
 btnAtn.grid(row=4, column=3)
-#----------------------------------------------------------------------------------------------------------------------------
-btn4.grid(row=5, column=0)
-btn8.grid(row=5, column=1)
-btnDal.grid(row=5, column=2)
-btnLogar.grid(row=5, column=3)
-#----------------------------------------------------------------------------------------------------------------------------
-btn7.grid(row=4, column=1)
-btnVien.grid(row=4, column=2)
+btnReiz.grid(row=3, column=3)
+btnDal.grid(row=2, column=3)
+
+btnKvadr.grid(row=1, column=2)
+btnKapin.grid(row=5, column=0)
+btnProc.grid(row=1, column=3)
+btnLogar.grid(row=1, column=1)
+
+btnVien.grid(row=5, column=2)
+btnDel.grid(row=1, column=0)
 
 mansLogs.mainloop()
