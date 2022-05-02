@@ -37,8 +37,6 @@ def vienads():
         result = num1 * num2
     elif mathOp == "/":
         result = num1 / num2
-    elif mathOp == "x²":
-        result = num1**2
     else:
         result = 0
     e.delete(0, END)
@@ -49,6 +47,16 @@ def clear():
     e.delete(0, END)
     num1 = 0
     mathOp = ""
+    return 0
+
+def kapinasana():
+    global operator
+    global num1
+    global mathOp
+    num1 = (int(e.get()))
+    num1 = num1**2
+    e.delete(0, END)
+    e.insert(0, num1)
     return 0
 
 def kvadrSakne():
@@ -83,19 +91,19 @@ def logaritms():
     return 0
 
 # izveido pogas
-e = Entry(mansLogs, width = 15, bd = 20, font=("Arial Black", 20))
+e = Entry(mansLogs, width = 15, bd = 20, bg = "#F5F5F5", font = ("Times", 20))
 # logs, kurā ievada skaitļus
 
-btn0 = Button(mansLogs, text="0", padx="30", pady="20", bd = 5, command = lambda:btnClick(0))
-btn1 = Button(mansLogs, text="1", padx="30", pady="20", bd = 5, command = lambda:btnClick(1))
-btn2 = Button(mansLogs, text="2", padx="30", pady="20", bd = 5, command = lambda:btnClick(2))
-btn3 = Button(mansLogs, text="3", padx="30", pady="20", bd = 5, command = lambda:btnClick(3))
-btn4 = Button(mansLogs, text="4", padx="30", pady="20", bd = 5, command = lambda:btnClick(4))
-btn5 = Button(mansLogs, text="5", padx="30", pady="20", bd = 5, command = lambda:btnClick(5))
-btn6 = Button(mansLogs, text="6", padx="30", pady="20", bd = 5, command = lambda:btnClick(6))
-btn7 = Button(mansLogs, text="7", padx="30", pady="20", bd = 5, command = lambda:btnClick(7))
-btn8 = Button(mansLogs, text="8", padx="30", pady="20", bd = 5, command = lambda:btnClick(8))
-btn9 = Button(mansLogs, text="9", padx="30", pady="20", bd = 5, command = lambda:btnClick(9))
+btn0 = Button(mansLogs, text="0", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(0))
+btn1 = Button(mansLogs, text="1", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(1))
+btn2 = Button(mansLogs, text="2", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(2))
+btn3 = Button(mansLogs, text="3", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(3))
+btn4 = Button(mansLogs, text="4", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(4))
+btn5 = Button(mansLogs, text="5", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(5))
+btn6 = Button(mansLogs, text="6", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(6))
+btn7 = Button(mansLogs, text="7", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(7))
+btn8 = Button(mansLogs, text="8", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(8))
+btn9 = Button(mansLogs, text="9", padx="30", pady="20", bd = 5, bg = "#778899", command = lambda:btnClick(9))
 
 btnSas = Button(mansLogs, text="+", padx="28", pady="20", bd = 5, command = lambda:btnCommand("+"))
 btnAtn = Button(mansLogs, text="-", padx="30", pady="20", bd = 5, command = lambda:btnCommand("-"))
@@ -103,12 +111,12 @@ btnReiz = Button(mansLogs, text="*", padx="30", pady="20", bd = 5, command = lam
 btnDal = Button(mansLogs, text="/", padx="30", pady="20", bd = 5, command = lambda:btnCommand("/"))
 
 btnKvadr = Button(mansLogs, text="√", padx="30", pady="20", bd = 5, command = kvadrSakne)
-btnKapin = Button(mansLogs, text="x²", padx="30", pady="20", bd = 5, command = lambda:btnCommand("x²"))
+btnKapin = Button(mansLogs, text="x²", padx="30", pady="20", bd = 5, command = kapinasana)
 btnProc = Button(mansLogs, text="%", padx="27.5", pady="20", bd = 5, command = procenti)
 btnLogar = Button(mansLogs, text="log", padx="25", pady="20", bd = 5, command = logaritms)
 
 btnVien = Button(mansLogs, text="=", padx="30", pady="20", bd = 5, command = vienads)
-btnDel = Button(mansLogs, text="C", padx="30", pady="20", bd = 5, command = clear)
+btnDel = Button(mansLogs, text="C", padx="30", pady="20", bd = 5, bg = "#CD4C46", command = clear)
 
 # definē novietojumu
 e.grid(row=0, column=0, columnspan=4)
